@@ -13,6 +13,9 @@ bool player::move(contestant& enemy, revolver& gun) {
     cout << endl;
     cout << "enemy hp: " << enemy.get_hp() << endl;
     cout << "enemy mp: " << enemy.get_mp() << endl;
+    cout << endl;
+    std::cout << "bullets: " << gun.num_bullets() << std::endl;
+    std::cout << "chambers: " << gun.num_chambers() << std::endl;
     int damage = 1;
     string act = "";
     cin >> act;
@@ -44,9 +47,10 @@ bool player::move(contestant& enemy, revolver& gun) {
         else if (act == "heal") {
             if (mp >= 3 and hp < max_hp) {
                 mp -= 3;
-                damage = 2;
+                hp++;
                 cout << "spell was casted" << endl;
                 cout << "your mp: " << mp << endl;
+                cout << "your hp: " << hp << endl;
             }
             else if (hp == max_hp) {
                 cout << "you already have max health" << endl;
@@ -77,6 +81,7 @@ bool player::move(contestant& enemy, revolver& gun) {
                 }
                 cout << "spell was casted" << endl;
                 cout << "your mp: " << mp << endl;
+                cout << "enemy hp: " << enemy.get_hp() << endl;
             }
             else {
                 cout << "not enough mana" << endl;
@@ -117,7 +122,7 @@ bool player::move(contestant& enemy, revolver& gun) {
         if (!gun.shoot()) {
             return 0;
         }
-        hp--;
+        hp-=damage;
         cout << "your hp: " << hp << endl;
         return 1;
     }

@@ -39,6 +39,11 @@ int revolver::num_bullets() {
     return bullets;
 }
 
+int revolver::num_chambers() {
+    return 6 - currentCell;
+}
+
+
 bool revolver::shoot() {
     if (cell()) {
         cout << "Bullet!" << endl;

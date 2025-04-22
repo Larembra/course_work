@@ -13,8 +13,10 @@ protected:
 public:
     void stun();
     void unstun();
+    bool is_stunned();
     bool move();
     void set_hp(int Hp);
+    void set_max_hp(int max_Hp);
     int get_hp();
     void set_mp(int Mp, int max_Mp);
     int get_mp();
