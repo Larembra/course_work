@@ -1,4 +1,5 @@
 #include "revolver.h"
+#include "telegram.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -6,6 +7,9 @@
 #include <random>
 
 using namespace std;
+
+
+
 
 void revolver::new_magazine() {
     srand(time(0));
@@ -39,19 +43,29 @@ int revolver::num_bullets() {
     return bullets;
 }
 
-bool revolver::shoot() {
+int revolver::num_chambers() {
+    return 6 - currentCell;
+}
+
+
+bool revolver::shoot(const int64_t chat_id) {
     if (cell()) {
+        sendTelegramMessage(chat_id, "💥 Bullet! 💥");
         cout << "Bullet!" << endl;
         bullets--;
         currentCell = (currentCell + 1) % 6;
         if (bullets == 0) {
-            std::cout << "No more bullets! Reloading...\n";
-            bullets = std::rand() % 5 + 1;
             new_magazine();
+            sendTelegramMessage(chat_id, R"(❗️ No more bullets ❗️
+Revolver randomly reloaded with ❗️)" + to_string(num_bullets()) + "❗️ more bullets");
+            //std::cout << "No more bullets! Reloading...\n";
+            //bullets = std::rand() % 5 + 1;
+            //new_magazine();
         }
         return true;
     }
-    cout << "No bullet!" << endl;
+    sendTelegramMessage(chat_id, "❌ No bullet! ❌");
+    //cout << "No bullet!" << endl;
     currentCell = (currentCell + 1) % 6;
     return false;
 }
