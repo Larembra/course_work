@@ -2,10 +2,17 @@
 
 void contestant::set_hp(int Hp) {
     hp = Hp;
-    max_hp = Hp;
+
 }
-void contestant::set_mp(int Mp, int max_Mp) {
+void contestant::set_max_hp(int max_Hp) {
+    hp = max_Hp;
+    max_hp = max_Hp;
+}
+
+void contestant::set_mp(int Mp) {
     mp = Mp;
+}
+void contestant::set_max_mp(int max_Mp) {
     max_mp = max_Mp;
 }
 int contestant::get_hp() {
@@ -20,4 +27,7 @@ void contestant::stun() {
 }
 void contestant::unstun() {
     stunned = false;
+}
+bool contestant::is_stunned() {
+    return stunned;
 }
