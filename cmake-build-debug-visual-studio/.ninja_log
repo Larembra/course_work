@@ -1,0 +1,10 @@
+# ninja log v6
+11	537	7671897586832488	build.ninja	433dd84451c16f33
+34	304	7671165102977450	CMakeFiles/course_work.dir/contestant.cpp.obj	6c48476904a739e
+31	729	7671165102947503	CMakeFiles/course_work.dir/revolver.cpp.obj	ee52fbf314f7381d
+28	4410	7671896765434695	CMakeFiles/course_work.dir/test.cpp.obj	f042421a04f86cfd
+64	10148	7671856832896405	CMakeFiles/course_work.dir/tgbottest.cpp.obj	688534f048720d14
+10181	12483	7671856934059396	course_work.exe	28dadc4c9840c1ff
+24	572	7671897586832488	build.ninja	433dd84451c16f33
+78	520	7671897589650016	CMakeFiles/course_work.dir/contestant.cpp.obj	ecac6639745a0229
+72	1259	7671897589589035	CMakeFiles/course_work.dir/revolver.cpp.obj	ffe5b35e9894f01c
